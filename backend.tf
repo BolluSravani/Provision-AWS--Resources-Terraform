@@ -1,9 +1,9 @@
 terraform {
   backend "s3" {
-    bucket         = "sravani-jenkins-terraform-state"
+    bucket         = "sravaniterraform-state"
     key            = "terraform/state.tfstate"
     region         = "us-east-1"
-    dynamodb_table = "terraform-locks"
+    dynamodb_table = "terraform-statelocks"
     encrypt        = true
   }
 }
