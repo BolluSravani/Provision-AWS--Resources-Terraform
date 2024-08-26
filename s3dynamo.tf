@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "Bollu-AWSterraformtest-state"  # Ensure this bucket name is globally unique
+  bucket = "Bollu297-terraformtest-state"  # Ensure this bucket name is globally unique
   acl    = "private"
   tags = {
     Name = "Terraform State Bucket"
