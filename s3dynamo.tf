@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "BolluS-terraform-Jenkinstest-state"  
+  bucket = "bollusterraform-jenkinstest-state"  
   acl    = "private"
   tags = {
     Name = "Terraform State Bucket"
