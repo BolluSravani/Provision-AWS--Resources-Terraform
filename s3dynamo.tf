@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "Bollu297-terraformtest-state"  # Ensure this bucket name is globally unique
+  bucket = "BolluS-terraform-Jenkinstest-state"  
   acl    = "private"
   tags = {
     Name = "Terraform State Bucket"
@@ -8,7 +8,7 @@ resource "aws_s3_bucket" "terraform_state" {
 
 resource "aws_dynamodb_table" "terraform_statelocks" {
   name           = "terraform-statelocks"
-  billing_mode    = "PAY_PER_REQUEST"  # Use on-demand pricing
+  billing_mode    = "PAY_PER_REQUEST" 
   hash_key        = "LockID"
   attribute {
     name = "LockID"
