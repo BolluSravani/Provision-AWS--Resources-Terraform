@@ -57,7 +57,7 @@ resource "aws_security_group" "ecs_sg7" {
 
 # ECS Task Execution Role
 resource "aws_iam_role" "ecs_task_execution_role7" {
-  name = "ecsTaskExecutionRole5"
+  name = "ecsTaskExecutionRole3"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
@@ -90,7 +90,7 @@ resource "aws_ecs_cluster" "jenkins_cluster7" {
 
 # ALB
 resource "aws_lb" "jenkins_alb7" {
-  name               = "jenkins-alb4"
+  name               = "jenkins-alb3"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.ecs_sg7.id]
@@ -99,7 +99,7 @@ resource "aws_lb" "jenkins_alb7" {
 
 # ALB Target Group
 resource "aws_lb_target_group" "jenkins_tg7" {
-  name     = "jenkins-tg4"
+  name     = "jenkins-tg3"
   port     = 8080
   protocol = "HTTP"
   vpc_id   = aws_vpc.main7.id
@@ -130,7 +130,7 @@ resource "aws_ecs_task_definition" "jenkins_task7" {
 
   container_definitions = jsonencode([
     {
-      name      = "jenkins4"
+      name      = "jenkins3"
       image     = "${aws_ecr_repository.jenkins7.repository_url}:latest"
       essential = true
       portMappings = [
@@ -156,7 +156,7 @@ resource "aws_ecs_service" "jenkins_service7" {
   }
   load_balancer {
     target_group_arn = aws_lb_target_group.jenkins_tg7.arn
-    container_name   = "jenkins4"
+    container_name   = "jenkins3"
     container_port   = 8080
   }
   depends_on = [aws_lb_listener.jenkins_listener7]
